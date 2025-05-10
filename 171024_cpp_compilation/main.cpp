@@ -3,26 +3,25 @@
 #include <algorithm>
 using namespace std;
 
-int main()
-{
+void bubbleSort(vector<int>& a) {
+    int n = a.size();
+    for (int i = 0; i < n-1; i++) {
+        for (int j = 0; j < n-i-1; j++) {
+            if (a[j] > a[j+1]) {
+                swap(a[j], a[j+1]);
+            }
+        }
+    }
+}
+
+int main() {
     int n;
     cin >> n;
     vector<int> a(n);
     for (int i = 0; i < n; ++i) {
         cin >> a[i];
-        if (i >= 1) {
-            if (i % 2) {
-                if (a[i] < a[i - 1]) {
-                    swap(a[i - 1], a[i]);
-                }
-            }
-            else {
-                if (a[i] > a[i - 1]) {
-                    swap(a[i - 1], a[i]);
-                }
-            }
-        }
     }
+    bubbleSort(a);
     for (int i = 0; i < n; ++i) {
         cout << a[i] << " ";
     }
